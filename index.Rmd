@@ -14,7 +14,7 @@ main_findings:
 main_width: 1
 logoleft_name:  images/asu_logo.png
 logoright_name: images/TAGC24-logo.png
-logocenter_name: images/qr-code-removebg-preview.png
+logocenter_name: images/qr-code.png
 column_number: 1
 output: 
   posterdown::posterdown_betterport:
@@ -212,5 +212,5 @@ p <- lr.test(logL.null, logLik(fit_xy))
 ```
 \[ p = 0.044\]
 <center>
-<font size="8">A custom Pagel94 model described the evolution between lifestyle and gene copy number better than the null model would</font> <br>
+<font size="8">A custom Pagel94 model described the evolution between lifestyle and gene copy number better than the null model</font> <br>
 </center>
