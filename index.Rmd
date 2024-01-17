@@ -1,0 +1,216 @@
+---
+main_topsize: 0.2 #percent coverage of the poster
+main_bottomsize: 0.1
+poster_height: "48in"
+poster_width: "36in"
+primary_colour: "black"
+secondary_colour: "black"
+font_family: "Comic Sans MS"
+main_fontfamily: "Comic Sans MS"
+main_textcol: "#FFFF00"
+#ESSENTIALS
+main_findings:
+ - 'Gene copy number promotes the rapid evolution of pests across Diptera'
+main_width: 1
+logoleft_name:  images/asu_logo.png
+logoright_name: images/TAGC24-logo.png
+logocenter_name: images/qr-code-removebg-preview.png
+column_number: 1
+output: 
+  posterdown::posterdown_betterport:
+    self_contained: false
+    pandoc_args: --mathjax
+    number_sections: false
+bibliography: packages.bib
+link-citations: true
+---
+
+<style>
+
+#main-img-left {
+ width: 40%;
+}
+#main-img-center {
+ width: 10.3%;
+}
+#main-img-right {
+ width: 14%;
+}
+
+.main p {
+font-size: $if(main_textsize)$$main_textsize$$else$150px$endif$;
+font-family: $if(main_fontfamily)$$main_fontfamily$$else$Special Elite$endif$;
+text-align: $if(main_textalign)$$main_textalign$$else$center$endif$;
+margin: 0;
+position: absolute;
+top: 50%;
+-ms-transform: translateY(-50%);
+transform: translateY(-50%);
+margin-left: 0;
+}
+
+</style>
+
+<center>Dylan Padilla$^1$, Liam Revell$^2$, & Michael Angilletta$^1$</center><br>
+<center>$^1$School of Life Sciences, Arizona State University</center>
+<center>$^2$Department of Biology, UMass Boston</center><br>
+<center> `r icon_style(fontawesome("envelope", style = "solid"), scale = 1, fill = "gray")` <font size="12"> dpadil10@asu.edu </font> | `r icon_style(fontawesome("twitter", style = "brands"), scale = 1, fill = "skyblue")` <font size="6"> [Dylan_Padilla94]("https://twitter.com/Dylan_Padilla94")</font></center>
+
+```{r, echo = FALSE, out.width = "60%", width = 7, height = 7, fig.align = "center", dpi = 300, include = FALSE}
+
+library(DiagrammeR)
+library(DiagrammeRsvg)
+library(rsvg)
+
+DiagrammeR::grViz("digraph {
+
+graph [layout = dot, rankdir = LR, fontcolor = black, bgcolor = orange]
+
+# define the global styles of the nodes. We can override these in box if we wish
+node [shape = cds, style = filled, fillcolor = gray, color = orange, fontname = Courier]
+edge [color = skyblue, fillcolor = skyblue]
+data1 [label = '1. Background', shape = cds, fillcolor = orange, fontcolor = black]
+
+# edge definitions with the node IDs
+{data1}
+}")%>% export_svg %>% charToRaw %>% rsvg_png("images/background.png", width = 2000, height = 300)
+
+```
+
+<center>
+![](images/background.png){width=70%}
+![](images/for-gene.png){width=100%}
+![](images/map.png){width=85%}
+![](images/phylo-ortho.png){width=100%}
+
+<font size="8">GCN provides genomic material for diversification and gene expansions or losses</font>
+
+</center>
+
+<center>
+
+![](images/gene-expansion.png){width=90%}
+
+<font size="8">Differential gene size expansion during animal evolution</font>
+
+</center>
+
+
+```{r, echo = FALSE, out.width = "60%", width = 7, height = 7, fig.align = "center", dpi = 300, include = FALSE}
+
+DiagrammeR::grViz("digraph {
+
+graph [layout = dot, rankdir = LR, fontcolor = black, bgcolor = orange]
+
+# define the global styles of the nodes. We can override these in box if we wish
+node [shape = cds, style = filled, fillcolor = gray, color = orange, fontname = Courier]
+edge [color = skyblue, fillcolor = skyblue]
+data1 [label = '2. Materials and Methods', shape = cds, fillcolor = orange, fontcolor = black]
+
+# edge definitions with the node IDs
+{data1}
+}")%>% export_svg %>% charToRaw %>% rsvg_png("images/materials-methods.png", width = 2000, height = 300)
+
+```
+
+<center>
+![](images/materials-methods.png){width=60%}
+</center>
+
+<center>
+
+![](images/OrthoDB-logo.png){width=35%} <br> ⬇ <br> ![](images/terminal-icon.png){width=15%}![](images/coding.png){width=25%} <br>RAxML version 8.0.0<br>  ⬇ <br>  ![](images/treerecs-logo.png){width=60%} <br>  ![](images/gene-species.png){width=60%} <br> ⬇ <br> ![](images/reconciliation.png){width=40%} ➡ ![](images/book-liam.jpeg){width=21%}
+
+</center>
+
+```{r, echo = FALSE, out.width = "60%", width = 7, height = 7, fig.align = "center", dpi = 300, include = FALSE}
+
+DiagrammeR::grViz("digraph {
+
+graph [layout = dot, rankdir = LR, fontcolor = black, bgcolor = orange]
+
+# define the global styles of the nodes. We can override these in box if we wish
+node [shape = cds, style = filled, fillcolor = gray, color = orange, fontname = Courier]
+edge [color = skyblue, fillcolor = skyblue]
+data1 [label = '3. Results', shape = cds, fillcolor = orange, fontcolor = black]
+
+# edge definitions with the node IDs
+{data1}
+}")%>% export_svg %>% charToRaw %>% rsvg_png("images/Results.png", width = 2000, height = 300)
+
+```
+
+<center>
+![](images/Results.png){width=70%} <br>
+<font size="8">Duplications = 41, Losses = 173</font>
+![](images/RAxML_TimeTree.for.diptera.val.pruned.tre_recs.png){width=67%}
+</center>
+<center>
+<font size="8">How do lifestyle and gene copy number correlate?</font>
+</center>
+<br>
+
+```{r, echo = FALSE, out.width = "110%", width = 7, height = 7, fig.align = "left", dpi = 300}
+
+plotTree(spp.tree.diptera, ftype = "off",  mar = c(0, 5, 0, 8), lwd = 2)
+
+
+col1 <- c("black", "gold")
+col2 <- viridisLite::viridis(n = 10)
+xx <- as.factor(x[spp.tree.diptera$tip.label])
+yy <- as.factor(y[spp.tree.diptera$tip.label])
+
+h <- max(nodeHeights(spp.tree.diptera))
+pp <- get("last_plot.phylo", envir =.PlotPhyloEnv)
+
+for(i in 1:Ntip(spp.tree.diptera)){
+    polygon(x = c(h, 1.12*h, 1.12*h, h), i+c(-0.5,-0.5,0.5,0.5),
+            col = col1[as.numeric(as.factor(xx))[i]], border = "transparent")
+    polygon(x = 6.5 + c(h, 1.12*h, 1.12*h, h), i+c(-0.5,-0.5,0.5,0.5),
+            col = col2[as.numeric(as.factor(yy))[i]], border = "transparent")
+}
+
+
+levels(yy) <- levels(yy)[c(2, 3, 5, 4, 1)]
+
+legend("topleft", legend = levels(xx), pch = 15, col = col1, bg = col1, bty = "n", title = "lifestyle", cex = 0.7)
+legend(x = 40, y = 69, legend = levels(yy), pch = 15, col = col2, bg = col2, bty = "n", title = "copy number", cex = 0.7)
+
+```
+<center>
+<font size="8">To address our research question, we fitted a custom Pagel94 model</font>
+</center>
+
+```{r, echo = FALSE, out.width = "115%", width = 7, height = 7, fig.align = "left", dpi = 300}
+
+
+## Plotting transitions
+
+
+plot(fit_xy, width = FALSE, color = TRUE, show.zeros = FALSE, text = FALSE, fit.signif = 2,
+     mar = c(0, 0, 0, 0), spacer = 0.15, cex.traits = 0.7, max.lwd = 2.5)
+
+
+```
+<center>
+<font size="8">We found that the gene copy number tends to increase in species known as pests</font>
+</center>
+
+<font size="8">Let's compare our model with the null expectation:</font>
+
+```{r, echo = TRUE, out.width = "110%", width = 7, height = 7, fig.align = "left", dpi = 300}
+
+lr.test<-function(lik1,lik2){
+LR<-2*(lik2-lik1)
+as.numeric(
+pchisq(LR,df=attr(lik2,"df")-attr(lik1,"df"),
+lower.tail=FALSE))
+}
+
+p <- lr.test(logL.null, logLik(fit_xy))
+
+```
+\[ p = 0.044\]
+<center>
+<font size="8">A custom Pagel94 model described the evolution between lifestyle and gene copy number better than the null model would</font> <br>
+</center>
