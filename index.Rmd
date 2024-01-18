@@ -14,7 +14,7 @@ main_findings:
 main_width: 1
 logoleft_name:  images/asu_logo.png
 logoright_name: images/TAGC24-logo.png
-logocenter_name: images/qr-code-removebg-preview.png
+logocenter_name: images/qr-code.png
 column_number: 1
 output: 
   posterdown::posterdown_betterport:
@@ -73,12 +73,12 @@ data1 [label = '1. Background', shape = cds, fillcolor = orange, fontcolor = bla
 
 # edge definitions with the node IDs
 {data1}
-}")%>% export_svg %>% charToRaw %>% rsvg_png("images/background.png", width = 2000, height = 300)
+}")%>% export_svg %>% charToRaw %>% rsvg_png("images/background.png", width = 2000, height = 700)
 
 ```
 
 <center>
-![](images/background.png){width=70%}
+![](images/background.png){width=32%}
 ![](images/for-gene.png){width=100%}
 ![](images/map.png){width=85%}
 ![](images/phylo-ortho.png){width=100%}
@@ -136,12 +136,12 @@ data1 [label = '3. Results', shape = cds, fillcolor = orange, fontcolor = black]
 
 # edge definitions with the node IDs
 {data1}
-}")%>% export_svg %>% charToRaw %>% rsvg_png("images/Results.png", width = 2000, height = 300)
+}")%>% export_svg %>% charToRaw %>% rsvg_png("images/Results.png", width = 2000, height = 700)
 
 ```
 
 <center>
-![](images/Results.png){width=70%} <br>
+![](images/Results.png){width=30%} <br>
 <font size="8">Duplications = 41, Losses = 173</font>
 ![](images/RAxML_TimeTree.for.diptera.val.pruned.tre_recs.png){width=67%}
 </center>
@@ -196,21 +196,27 @@ plot(fit_xy, width = FALSE, color = TRUE, show.zeros = FALSE, text = FALSE, fit.
 <font size="8">We found that the gene copy number tends to increase in species known as pests</font>
 </center>
 
-<font size="8">Let's compare our model with the null expectation:</font>
+```{r, echo = FALSE, out.width = "90%", width = 7, height = 7, fig.align = "center", dpi = 300}
 
-```{r, echo = TRUE, out.width = "110%", width = 7, height = 7, fig.align = "left", dpi = 300}
+library(lattice)
+library(scales)
 
-lr.test<-function(lik1,lik2){
-LR<-2*(lik2-lik1)
-as.numeric(
-pchisq(LR,df=attr(lik2,"df")-attr(lik1,"df"),
-lower.tail=FALSE))
-}
+bar.data <- data.frame(count, gene.content, lifestyle, spp = names(gene.content))
 
-p <- lr.test(logL.null, logLik(fit_xy))
+bar.data$lifestyle <- as.factor(bar.data$lifestyle)
+
+
+barplot(count ~ spp, data = bar.data, xaxt = "n", ylab = "Gene copy number", las = 1, xlab = "", border = FALSE, space = FALSE, col = c(alpha("black", 0.6), alpha("gold", 0.5))[bar.data$lifestyle], ylim = c(0, 5))
+
+#for(i in 1:66){
+#    axis(1, at = median(which(bar.data$spp == bar.data$spp[i])), labels = "")
+#}
+#text(x = 1:66, y = par("usr")[3] - 0.05, labels = bar.data$spp, xpd = NA, srt = 80, cex = 0.4, adj = 1.1)
+mtext(side = 1, line = 2, text = "Species")
+
+legend("topleft", legend = levels(bar.data$lifestyle), pch = 15, col = c("black", "gold"), bty = "n")
 
 ```
-\[ p = 0.044\]
 <center>
-<font size="8">A custom Pagel94 model described the evolution between lifestyle and gene copy number better than the null model would</font> <br>
+<font size="8">A custom Pagel94 model described the evolution between lifestyle and gene copy number better than the null model ($p=0.044$)</font> <br>
 </center>
