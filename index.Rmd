@@ -63,7 +63,7 @@ margin-left: 0;
 
 </style>
 
-<center>Dylan Padilla$^1$, Liam Revell$^2$, & Michael Angilletta$^1$</center><br>
+<center>[Dylan Padilla](https://dylanpadilla.netlify.app/)$^1$, [Liam Revell](https://faculty.umb.edu/liam.revell/)$^2$, & Michael Angilletta$^1$</center><br>
 <center>$^1$School of Life Sciences, Arizona State University</center>
 <center>$^2$Department of Biology, UMass Boston</center><br>
 <center> `r icon_style(fontawesome("envelope", style = "solid"), scale = 1, fill = "gray")` <font size="12"> dpadil10@asu.edu </font> | `r icon_style(fontawesome("twitter", style = "brands"), scale = 1, fill = "skyblue")` <font size="6"> [Dylan_Padilla94]("https://twitter.com/Dylan_Padilla94")</font></center>
@@ -95,7 +95,7 @@ data1 [label = '1. Background', shape = cds, fillcolor = orange, fontcolor = bla
 ![](images/map.png){width=85%}
 ![](images/phylo-ortho.png){width=100%}
 
-<font size="8">GCN provides genomic material for diversification and gene expansions or losses</font>
+<font size="8">Gene copy number provides genomic material for diversification and gene expansions or losses</font>
 
 </center>
 
@@ -103,7 +103,7 @@ data1 [label = '1. Background', shape = cds, fillcolor = orange, fontcolor = bla
 
 ![](images/gene-expansion.png){width=90%}
 
-<font size="8">Differential gene size expansion during animal evolution</font>
+<font size="8">Differential gene size expansion during animal evolution (McCoy and Fire, 2020)</font>
 
 </center>
 
