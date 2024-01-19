@@ -10,7 +10,7 @@ main_fontfamily: "Comic Sans MS"
 main_textcol: "#FFFF00"
 #ESSENTIALS
 main_findings:
- - 'Gene copy number promotes the rapid evolution of pests across Diptera'
+ - '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Gene copy number promotes the rapid &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; evolution of pests across Diptera'
 main_width: 1
 logoleft_name:  images/asu_logo.png
 logoright_name: images/TAGC24-logo.png
@@ -26,6 +26,18 @@ link-citations: true
 ---
 
 <style>
+
+![](images/mosquitoe.png){width=21%}.main {
+width: 36in;
+height: calc(48in * 0.2);
+position: absolute;
+background-color: black;
+color: #FFFF0090;
+font-family: Comic Sans MS;
+background-image: url("images/mosquitoe.png");
+background-size: 30%, cover;
+background-repeat: no-repeat, no-repeat;
+}
 
 #main-img-left {
  width: 40%;
